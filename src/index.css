@@ -7,6 +7,7 @@
   body,
   #root {
     min-width: 320px;
+    scroll-behavior: smooth;
   }
 
   @font-face {
@@ -74,4 +75,5 @@
   .stn-secondary {
     @apply hero bg-secondary min-h-screen mt-4 rounded-3xl;
   }
+
 }

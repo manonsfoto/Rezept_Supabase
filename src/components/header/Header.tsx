@@ -32,11 +32,7 @@ const Header = () => {
       <nav className="navbar px-0  border-b-font-semibold uppercase ">
         <div className="navbar-start">
           <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="nav-btn lg:hidden"
-            >
+            <div tabIndex={0} role="button" className="nav-btn lg:hidden">
               <MenuIcon />
             </div>
             <ul
@@ -61,40 +57,41 @@ const Header = () => {
             </ul>
           </div>
 
-          <Link to={"/"} className="hover:text-info hidden lg:flex">
+          <Link
+            to={"/"}
+            className="transition-transform duration-300 hover:scale-105 hidden lg:flex"
+          >
             <p className="font-gaegu text-3xl tracking-tight">Die Rezeptwelt</p>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="flex gap-4  px-1">
             {navItems.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className="relative group">
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    isActive
-                      ? "nav-active"
-                      : "px-2"
+                    isActive ? "nav-active" : "px-2"
                   }
                 >
                   {item.name}
                 </NavLink>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neutral transition-all duration-300 group-hover:w-full" />
               </li>
             ))}
             {user && (
               <>
                 {navItemsPrivate.map((item) => (
-                  <li key={item.id}>
+                  <li key={item.id} className="relative group">
                     <NavLink
                       to={item.path}
                       className={({ isActive }) =>
-                        isActive
-                          ? "nav-active"
-                          : "px-2"
+                        isActive ? "nav-active" : "px-2"
                       }
                     >
                       {item.name}
                     </NavLink>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neutral transition-all duration-300 group-hover:w-full" />
                   </li>
                 ))}
               </>
@@ -103,11 +100,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           <div className="dropdown dropdown-end">
-            <button
-              tabIndex={0}
-              className="nav-btn mr-4"
-              title="Suche"
-            >
+            <button tabIndex={0} className="nav-btn mr-4" title="Suche">
               <SearchIcon />
             </button>
 
@@ -176,7 +169,7 @@ const Header = () => {
           ) : (
             <Link
               to={"/login"}
-              className=" rounded-full  border-black border-2 px-2 ml-2 hover:bg-accent"
+              className=" rounded-full  border-black border-2 px-2 ml-2 hover:bg-accent transition-colors duration-300"
             >
               Anmelden
             </Link>
