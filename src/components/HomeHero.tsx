@@ -1,4 +1,22 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const HomeHero = () => {
+  useGSAP(() => {
+    gsap.fromTo(
+      ".hero",
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+      }
+    );
+  });
   return (
     <div
       className="hero h-svh rounded-3xl mt-4 bg-base-100 overflow-hidden"
